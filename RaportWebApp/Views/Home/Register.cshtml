@@ -1,0 +1,66 @@
+﻿@model RaportWebApp.Views.Home.RegisterModel
+@{
+    ViewBag.Title = "Rejestracja";
+}
+
+<div class="form-container">
+    <div class="form-box">
+        <h5 class="text-center mb-4">Rejestracja</h5>
+        <form method="post" action="@Url.Action("Register", "Account")">
+            <div class="mb-3">
+                <label for="name" class="form-label">Imię i nazwisko</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Wprowadź imię i nazwisko">
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Adres e-mail</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Wprowadź e-mail">
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Hasło</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="Wprowadź hasło">
+            </div>
+            <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Powtórz hasło</label>
+                <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="Powtórz hasło">
+            </div>
+            <button type="submit" class="btn btn-success w-100">Zarejestruj się</button>
+        </form>
+        <div class="text-center mt-3">
+            <p>Masz już konto? <a href="@Url.Action("Login", "Account")">Zaloguj się</a></p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .form-container {
+        width: 100%;
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+    }
+
+    .form-box {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-success {
+        background-color: #28a745;
+        border: none;
+    }
+
+    .btn-success:hover {
+        background-color: #218838;
+    }
+
+    a {
+        color: #007bff;
+        text-decoration: none;
+    }
+
+        a:hover {
+            text-decoration: underline;
+        }
+</style>
