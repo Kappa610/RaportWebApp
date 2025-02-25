@@ -1,23 +1,31 @@
-﻿@model RaportWebApp.Views.Home.LoginModel
+﻿@model RaportWebApp.Models.LoginModel
+
 @{
-    ViewBag.Title = "Logowanie";
+    ViewData["Title"] = "Logowanie";
 }
+
 <div class="form-container">
     <div class="form-box">
         <h5 class="text-center mb-4">Logowanie</h5>
-        <form method="post" action="@Url.Action("Login", "Account")">
+
+        <!-- Wyświetlanie komunikatów o błędach -->
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <form method="post" asp-action="Login" asp-controller="Account">
             <div class="mb-3">
                 <label for="email" class="form-label">Adres e-mail</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="Wprowadź e-mail">
+                <input type="email" class="form-control" id="email" asp-for="Email" placeholder="Wprowadź e-mail">
+                <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="mb-3">
                 <label for="password" class="form-label">Hasło</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Wprowadź hasło">
+                <input type="password" class="form-control" id="password" asp-for="Password" placeholder="Wprowadź hasło">
+                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <button type="submit" class="btn btn-primary w-100">Zaloguj się</button>
         </form>
         <div class="text-center mt-3">
-            <p>Nie masz jeszcze konta? <a href="@Url.Action("Register", "Account")">Zarejestruj się</a></p>
+            <p>Nie masz konta? <a asp-action="Register" asp-controller="Account">Zarejestruj się</a></p>
         </div>
     </div>
 </div>
